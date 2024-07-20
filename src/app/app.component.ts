@@ -54,11 +54,12 @@ this.passAndConPassSame()
     })
   }
   onSignUp(){
-    console.log(this.signUpForm.value);
+    console.log('Form Value:', this.signUpForm.getRawValue());
     this.signUpForm.reset()
     
   }
-
+ 
+  
   
   get skillsFormArry(){
     return this.signUpForm.get('skills') as FormArray
@@ -121,7 +122,8 @@ patchPerAdd(){
   this.f['isAddSame'].valueChanges.subscribe(res=>{
     if(res){
       this.f['permenentAddress'].patchValue(
-        this.f['currentAddress'].value
+        // this.f['currentAddress'].value
+        this.f['currentAddress'].getRawValue()
       )
       this.f['permenentAddress'].disable();
     }else{
